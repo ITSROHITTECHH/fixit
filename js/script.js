@@ -37,14 +37,7 @@ if (signupForm) {
    
     fetch("https://fixit-r6j0.onrender.com/api/signup/", {
       method: "POST",
-      headers: {
-  "Content-Type": "application/json"
-},
-body: JSON.stringify({
-  username: formData.get("username"),
-  email: formData.get("email"),
-  password: formData.get("password")
-})
+     body: formData
     })
       .then(res => res.json())
       .then(data => {
@@ -118,7 +111,7 @@ if (loginForm) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ username: email, password }),
+      body: JSON.stringify({ email, password }),
     })
       .then(res => res.json())
       .then(data => {
